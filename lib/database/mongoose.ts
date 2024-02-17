@@ -1,6 +1,6 @@
 import mongoose ,{Mongoose} from "mongoose";
 
-const URL = process.env.MONGO_URL!;
+const URL = process.env.MONGO_URL || " mongodb+srv://dilippurohit204:123456@dilip@cluster0.qjibzwv.mongodb.net/?retryWrites=true&w=majority";
 
 interface mongooseConnection {
     conn : Mongoose | null;
