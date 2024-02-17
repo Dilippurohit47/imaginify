@@ -14,15 +14,21 @@ if(!cached) {
 }
 
 export const connectToDatabase = async()=>{
-    if(cached.conn) return cached.conn;
+    try {
+        if(cached.conn) return cached.conn;
 
-    if(URL) throw new Error("MOngo db url is not defined ")
+        if(URL) throw new Error("MOngo db url is not defined ")
+    
+    
+        cached.promise = cached.promise || mongoose.connect(URL , {dbName:"Imaginify",bufferCommands:false})
+    
+        cached.conn = await cached.promise;
+    console.log("connected to mongo db succesfully")
+        return cached.conn
+    } catch (error) {
+        console.error("Failed to connect to MongoDB:", error);
+        throw error; // Re-throw the error to let the caller handle it
+    }
 
-
-    cached.promise = cached.promise || mongoose.connect(URL , {dbName:"imaginify",bufferCommands:false})
-
-    cached.conn = await cached.promise;
-
-    return cached.conn
 
 }
