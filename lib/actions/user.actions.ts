@@ -9,8 +9,9 @@ import { handleError } from "../utils";
 // CREATE
 export async function createUser(user: CreateUserParams) {
   try {
-    console.log("in database")
+    console.log(" user creation database")
     await connectToDatabase();
+    console.log("connect to databse database")
 
     const newUser = await User.create(user);
 

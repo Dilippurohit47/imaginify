@@ -1,6 +1,6 @@
 import mongoose, { Mongoose } from 'mongoose';
 
-const MONGODB_URL = "mongodb+srv://dilippurohit204:123456dilip@cluster0.qjibzwv.mongodb.net/?retryWrites=true&w=majority";
+const MONGODB_URL = process.env.MONGO_URL
 
 interface MongooseConnection {
   conn: Mongoose | null;

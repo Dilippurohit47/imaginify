@@ -6,9 +6,11 @@ import { NextResponse } from "next/server";
 import { Webhook } from "svix";
 
 import { createUser, deleteUser, updateUser } from "@/lib/actions/user.actions";
-
 export async function POST(req: Request) {
   // You can find this in the Clerk Dashboard -> Webhooks -> choose the webhook
+  console.log(" in route creationnnnnnnnnn")
+
+
   const WEBHOOK_SECRET = process.env.WEBHOOK_SECRET;
 
   if (!WEBHOOK_SECRET) {
@@ -16,6 +18,8 @@ export async function POST(req: Request) {
       "Please add WEBHOOK_SECRET from Clerk Dashboard to .env or .env.local"
     );
   }
+
+
 
   // Get the headers
   const headerPayload = headers();
@@ -39,7 +43,9 @@ export async function POST(req: Request) {
 
   let evt: WebhookEvent;
 
-  // Verify the payload with the headers
+
+
+
   try {
     evt = wh.verify(body, {
       "svix-id": svix_id,
@@ -60,6 +66,8 @@ export async function POST(req: Request) {
   // CREATE
   if (eventType === "user.created") {
     const { id, email_addresses, image_url, first_name, last_name, username } = evt.data;
+
+console.log("in evnet type route user created")
 
     const user = {
       clerkId: id,
@@ -113,4 +121,11 @@ export async function POST(req: Request) {
   console.log("Webhook body:", body);
 
   return new Response("", { status: 200 });
+}
+
+
+
+export async function GET() {
+
+  return Response.json({ message: 'Hello World!' })
 }
