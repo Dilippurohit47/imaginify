@@ -1,11 +1,11 @@
 # Imaginify
 
 Imaginify is an advanced image editing application built with Next.js, TypeScript, and MongoDB. It leverages Cloudinary for image processing and storage, Multer for handling file uploads, and Zod for schema validation.
-
+Cloundinary Ai for image editing.
 
 ## Features
 
-- **Real-time Image Editing**: Apply filters, crop, resize, and adjust images instantly.
+- **Real-time Image Editing**: Image Restore, Generative Fill , Object Remover, Object Recolor ,Background remover  using cloudinary Ai.
 - **Cloud Storage**: Securely store and manage images using Cloudinary.
 - **User Authentication**: Secure user accounts and sessions using clerk.
 - **Responsive Design**: Optimized for various devices and screen sizes.
@@ -18,6 +18,6 @@ Imaginify is an advanced image editing application built with Next.js, TypeScrip
 - **Cloudinary**: Cloud-based service for image and video management.
 - **Multer**: Middleware for handling multipart/form-data, primarily used for file uploads.
 - **Zod**: TypeScript-first schema declaration and validation library.
-- **Clerk**:Authentication.
+- **Clerk**: for Authentication.
   
 
